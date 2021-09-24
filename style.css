@@ -1,0 +1,679 @@
+
+/*------------------------------------------------------ RESET ------------------------------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* .clear {
+    clear: both;
+} */
+
+body {
+    margin: 0 auto;
+    max-width: 1200px;
+
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 100px 1fr 50px;
+    /* grid-gap: 0px 0px; */
+    grid-template-areas: 'menu''banner''section''footer';
+
+    color: white;
+    font-family: 'Righteous', cursive;
+}
+
+/*------------------------------------------------------ MENU ------------------------------------------------------- */
+
+nav {
+    grid-area: menu;
+    background-color: #0D0D0D;
+    border-bottom: white 2px solid;
+
+    /* height: 50px; w siatce grid */
+}
+
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    /* align-content: flex-end; */
+    height: 50px;
+    /* width: 100%; */
+    list-style: none;
+}
+
+nav li {
+    height: 100%;
+    padding: 5px 10px;
+}
+
+nav a {
+    display: block;
+    font-size: 15px; 
+    line-height: 16px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 20px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    font-size: 20px;
+}
+
+
+/*------------------------------------------------------ BANNER ------------------------------------------------------- */
+
+header {
+    grid-area: banner;
+    background-color: #0D0D0D;
+    /* border-bottom: black 2px solid; */
+    position: relative;
+    /* height: 100px; */
+
+    /* jako kontener*/
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+div.napis {
+    position: absolute;
+    height: 100px;
+    line-height: 100px;
+    font-size: 24px;
+    width: 100%;
+    text-align: center;
+}
+
+i.fa-hamburger {
+    font-size: 50px;
+}
+
+/*------------------------------------------------------ SECTION ------------------------------------------------------- */
+
+section {
+    /* position: relative; */
+    grid-area: section;
+    background-color: rgba(206, 240, 95, 0.9);
+
+
+    /* section jako kontener */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+}
+
+div.pos {
+
+    /* jako element elestyczny section */
+    flex-basis: 30%;
+    /* elementy elastyczne - ustawienia domyslne */
+
+    /* flex-grow: 0; pozwala rozdzielić miejsce, które zostało między dzieci rodzica */
+    /* flex-shrink: 1;  zmniejszą się w tej samej proporcji */
+    /* flex-basis: auto; zajmują tyle miejsca ile potrzebują na szerokość, zachowuje się jak podobnie jak width (przy row) lub
+height (w column)*/
+    /* align-self: auto; przyjmuje wartość kontenera, To samo co align-items ale dla pojedynczego elementu */
+    /* order: 0; Zmiana domyślnego rozmieszczenie elementów w kontenerze. */
+
+
+    /*kontener flex dla bg*/
+    display: flex;
+    align-content: space-between;
+    justify-content: space-around;
+    width: 160px;
+    height: 160px;
+
+    /* WŁAŚCIWOŚCI NADAWANE RODZICOWI */
+    /* display: flex; niezbędny aby włączyć flex */
+    /* flex-direction: row; ustawiają się obok siebie w poziomie*/
+    /* flex-wrap: nowrap; przejście do kolejnej linii */
+    /* align-items: stretch; na 100% wysokości rodzica, określa zachowanie prostopadłe do osi */
+    /* justify-content: flex-start; od lewej strony, równoległa oś do osi głównej, tylko wtedy gdy rodzic zajmuje więcej miejsca niz dzieci - dotyczy wolnej przestrzeni */
+    /* align-content: space-around; Gdy mamy więcej niż jedną linie możemy tworzyć sposób zachowania między nimi */
+}
+
+div.bg {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background-color: rgb(255, 255, 255);
+    border: #0D0D0D 6px solid;
+    /* flex-grow: 1; */
+    align-self: center;
+
+    /* jako kontener dla burger7 */
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+h1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    line-height: 20px;
+    font-size: 20px;
+    padding-top: 1px;
+    /* background-color: black; */
+    color: black;
+    /* font-family: Arial, Helvetica, sans-serif; */
+}
+
+p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    line-height: 15px;
+    background-color: black;
+    /* color: white; */
+    /* font-family: Arial, Helvetica, sans-serif; */
+}
+
+/*------------------------------------------------------ FOOTER ------------------------------------------------------- */
+
+footer {
+    grid-area: footer;
+    background-color: #0D0D0D;
+}
+
+
+/*------------------------------------------------------ IKONA BURGER #1 ------------------------------------------------------- */
+.burger1 {
+
+    position: absolute;
+    top: calc(50% - 25px);
+    left: calc(50% - 30px);
+    /* transform-origin: center center; */
+    /* background-color: grey; */
+    width: 60px;
+    height: 50px;
+    cursor: pointer;
+    transition: transform 0.4s 0.2s linear, top 0.4s 0.2s linear, bottom 0.4s 0.2s linear, opacity 0.2s 0.2s linear;
+}
+
+/*span */
+
+.burger1 span {
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    background-color: black;
+    border-radius: 5px;
+    left: 0;
+    transition: 0.2 linear;
+}
+
+.burger1 span:nth-child(1) {
+    top: 0;
+}
+
+.burger1 span:nth-child(2) {
+    top: calc(50% - 5px);
+}
+
+.burger1 span:nth-child(3) {
+    bottom: 0;
+}
+
+/* po dodaniu klasy active */
+
+.burger1.active {
+    transform: rotate(180deg);
+}
+
+.burger1.active span:nth-child(1) {
+    top: calc(50% - 5px);
+    transform: rotate(45deg);
+}
+
+.burger1.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger1.active span:nth-child(3) {
+    bottom: calc(50% - 5px);
+    transform: rotate(-45deg);
+}
+
+/*------------------------------------------------------ IKONA BURGER #2 ------------------------------------------------------- */
+.burger2 {
+    position: absolute;
+    top: calc(50% - 25px);
+    left: calc(50% - 30px);
+    /* transform-origin: center center; */
+    /* background-color: grey; */
+    width: 60px;
+    height: 50px;
+    cursor: pointer;
+}
+
+/*span */
+
+.burger2 span {
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    background-color: black;
+    border-radius: 5px;
+    left: 0;
+    transition: 0.3s 0.2s linear;
+}
+
+.burger2 span:nth-child(1) {
+    top: 0;
+    transform-origin: bottom left;
+    background-color: rgb(129, 129, 129);
+}
+
+.burger2 span:nth-child(2) {
+    top: calc(50% - 5px);
+}
+
+.burger2 span:nth-child(3) {
+    bottom: 0;
+    transform-origin: top left;
+    background-color: rgb(129, 129, 129);
+}
+
+/* po dodaniu klasy active */
+
+/* .burger2.active2 {
+    transform: rotate(90deg);
+} */
+
+.burger2.active2 span:nth-child(1) {
+    top: calc(50% - 10px);
+    transform: rotate(45deg);
+    /* background-color: black; */
+}
+
+.burger2.active2 span:nth-child(2) {
+    opacity: 0;
+    /* transform: rotate(45deg);*/
+}
+
+.burger2.active2 span:nth-child(3) {
+    bottom: calc(50% - 10px);
+    transform: rotate(-45deg);
+    /* background-color: black; */
+}
+
+/*------------------------------------------------------ IKONA BURGER #3 ------------------------------------------------------- */
+
+.burger3 {
+    position: absolute;
+    bottom: calc(50% - 30px);
+    left: calc(50% - 30px);
+    /* transform-origin: center center; */
+    background-color: black;
+    border-radius: 50%;
+    border-style: none;
+    width: 60px;
+    height: 60px;
+    font-size: 50px;
+    cursor: pointer;
+    box-shadow: 0 0 0 2px black, 0 0 0 4px white, 0 0 0 10px black;
+    overflow: hidden;
+}
+
+i.fa-angle-down {
+    position: absolute;
+    top: calc(50% - 25px);
+    left: calc(50% - 16px);
+    text-shadow: 0 -20px 0 white, 0 -40px 0 white;
+    transform: translateY(-52px);
+}
+
+i.fa-angle-up {
+    position: absolute;
+    top: calc(50% - 25px);
+    left: calc(50% - 16px);
+    transition: transform 0.1s ease, opacity 0.2s linear;
+}
+
+.burger3:hover i.fa-angle-up {
+    transform: scale(1.2) translateY(-5px);
+}
+
+@keyframes arrowD {
+    100% {
+        transform: translateY(92px);
+    }
+}
+
+/* po dodaniu klasy active3 / opacity3 */
+
+.active3 {
+    animation: arrowD 1.8s linear infinite;
+}
+
+i.fa-angle-up.opacity3 {
+    opacity: 0;
+}
+
+/*------------------------------------------------------ IKONA BURGER #4 ------------------------------------------------------- */
+.burger4 {
+
+    position: absolute;
+    top: calc(50% - 25px);
+    left: calc(50% - 30px);
+    /* transform-origin: center center; */
+    /* background-color: grey; */
+    width: 60px;
+    height: 50px;
+    cursor: pointer;
+    transition: transform 0.4s 0.2s linear, top 0.4s 0.2s linear, bottom 0.4s 0.2s linear, opacity 0.2s 0.2s linear;
+}
+
+/*span */
+
+.burger4 span {
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    background-color: rgb(129, 129, 129);
+    border-radius: 5px;
+    left: 0;
+    transition: 1.1s ease-in-out, background-color 1.5s linear;
+}
+
+.burger4 span:nth-child(1) {
+    top: 0;
+}
+
+.burger4 span:nth-child(2) {
+    top: calc(50% - 5px);
+}
+
+.burger4 span:nth-child(3) {
+    bottom: 0;
+
+}
+
+/* po dodaniu klasy active4 */
+
+/* .burger4.active4 {
+    transform: rotate(90deg);
+} */
+
+.burger4.active4 span:nth-child(1) {
+    top: calc(50% - 5px);
+    transform: rotate(45deg);
+    background-color: black;
+}
+
+.burger4.active4 span:nth-child(2) {
+    transform: rotate(-585deg);
+    opacity: 1;
+    background-color: black;
+}
+
+.burger4.active4 span:nth-child(3) {
+    bottom: calc(50% - 5px);
+    transform: rotate(45deg);
+    opacity: 1;
+    background-color: black;
+}
+
+/*------------------------------------------------------ IKONA BURGER #5 ------------------------------------------------------- */
+
+.bell {
+    position: absolute;
+    /* bottom: 50px;
+    right: 50px; */
+    width: 80px;
+    height: 80px;
+    top: calc(50% - 40px);
+    left: calc(50% - 40px);
+    border-radius: 50%;
+    /* border: 6px solid rgb(129, 129, 129); */
+    box-shadow: 0 0 0 2px rgb(129, 129, 129), 0 0 0 4px rgb(255, 255, 255), 0 0 0 8px rgb(129, 129, 129);
+    font-size: 50px;
+    color: rgb(129, 129, 129);
+    text-align: center;
+    line-height: 80px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.bell i {
+    animation: rotate 1s linear infinite alternate;
+    transform-origin: 50% 0;
+    transition: 0.5s;
+}
+
+.bell:hover i {
+    color: white;
+    animation-duration: 0.15s;
+    /* animation-play-state: paused; */
+    /* animation: none; */
+}
+
+.bell:hover {
+    background-color: rgb(129, 129, 129);
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(30deg);
+    }
+
+    100% {
+        transform: rotate(-30deg);
+    }
+}
+
+/*------------------------------------------------------ IKONA BURGER #6 ------------------------------------------------------- */
+
+.burger6 {
+    position: absolute;
+    top: calc(50% - 30px);
+    left: calc(50% - 30px);
+    width: 60px;
+    height: 60px;
+    background-color: black;
+    border-radius: 5%;
+    box-shadow: 0 0 0 4px white, 0 0 0 8px black;
+    cursor: pointer;
+    transition: 0.6s 0.2s linear;
+}
+
+.burger6:hover {
+    background-color: white;
+    color: black;
+}
+
+/*span */
+
+.burger6 span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 60px;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    font-size: 40px;
+}
+
+i.fa-times {
+    opacity: 0;
+}
+
+/* po dodaniu klasy active */
+
+.burger6.active6 {
+    transform: rotate(180deg);
+    border-radius: 50%;
+}
+
+.burger6.active6 i.fa-times {
+    opacity: 1;
+}
+
+.burger6.active6 i.fa-bars {
+    opacity: 0;
+}
+
+/*------------------------------------------------------ IKONA BURGER #7 ------------------------------------------------------- */
+
+.burger7 {
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100px;
+    height: 60px;
+
+    cursor: pointer;
+}
+
+.burger7 span {
+    align-self: flex-end;
+    height: 4px;
+    width: 100%;
+    background-color: rgb(129, 129, 129);
+}
+
+/* .burger7 span:nth-child(1) {
+    transition: all 3s ease-in-out;
+} */
+
+.burger7 span:nth-child(2) {
+    width: 75%;
+    /* transition: all 3s ease-in-out; */
+}
+
+.burger7 span:nth-child(3) {
+    width: 50%;
+    /* transition: all 3s ease-in-out; */
+}
+
+/* burger7:hover */
+
+/* .burger7:hover {
+    width: 100%;
+} */
+
+.burger7:hover span:nth-child(1) {
+    animation: burgerHover 1.3s infinite ease-in-out alternate;
+}
+
+.burger7:hover span:nth-child(2) {
+    animation: burgerHover 1.3s infinite ease-in-out alternate forwards 0.2s;
+}
+
+.burger7:hover span:nth-child(3) {
+    animation: burgerHover 1.3s infinite ease-in-out alternate forwards 0.4s;
+}
+
+@keyframes burgerHover {
+    0% {
+        width: 100%;
+    }
+
+    50% {
+        width: 50%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+/*------------------------------------------------------ IKONA BURGER #1 ------------------------------------------------------- */
+.burger8 {
+
+    position: absolute;
+    top: calc(50% - 23px);
+    left: calc(50% - 30px);
+    /* transform-origin: center center; */
+    /* background-color: grey; */
+    width: 60px;
+    height: 46px;
+    cursor: pointer;
+    transition: 0.3s ease-out;
+}
+
+/*span */
+
+.burger8 span {
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    line-height: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: rgb(129, 129, 129);
+    border-radius: 5px;
+    left: 0;
+    font-size: 0;
+    color: black;
+    transition: font-size 0.3s ease-out;
+}
+
+.burger8 span:nth-child(1) {
+    top: 0;
+}
+
+.burger8 span:nth-child(2) {
+    top: calc(50% - 5px);
+}
+
+.burger8 span:nth-child(3) {
+    bottom: 0;
+}
+
+.burger8:hover {
+    width: 80px;
+    height: 60px;
+    top: calc(50% - 30px);
+    left: calc(50% - 40px);
+}
+
+.burger8:hover span.meat {
+    background-color: transparent;
+    font-size: 20px;
+}
+
+/*------------------------------------------------------ MEDIA Queries ------------------------------------------------------- */
+
+/* @media (max-width: 1024px) {
+    body {
+        grid-template-columns: 1fr;
+        grid-template-rows: 50px 300px 1fr 1fr 50px;
+        grid-template-areas: 'menu' 'banner' 'main' 'aside' 'footer';
+    }
+} */
+@media (min-width: 768px) {
+    div.pos {
+        flex-basis: 25%;
+    }
+}
+
+@media (min-width: 1024px) {
+    div.pos {
+        flex-basis: 20%;
+    }
+}
+
+@media (min-width: 1200px) {
+    div.pos {
+        flex-basis: 15%;
+    }
+}
+
+/* open menu - pojawiające się kółko 
+clip-path: circle(1000px at 90% -10%);
+*/
