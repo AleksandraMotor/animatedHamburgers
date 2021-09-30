@@ -1,4 +1,3 @@
-
 /*------------------------------------------------------ RESET ------------------------------------------------------- */
 
 * {
@@ -52,7 +51,7 @@ nav li {
 
 nav a {
     display: block;
-    font-size: 15px; 
+    font-size: 15px;
     line-height: 16px;
     text-align: center;
     text-decoration: none;
@@ -98,13 +97,13 @@ i.fa-hamburger {
 /*------------------------------------------------------ SECTION ------------------------------------------------------- */
 
 section {
-    /* position: relative; */
     grid-area: section;
     background-color: rgba(206, 240, 95, 0.9);
 
 
     /* section jako kontener */
     display: flex;
+    /* flex-direction: row-reverse; */
     flex-wrap: wrap;
     justify-content: space-around;
     align-content: space-around;
@@ -149,7 +148,7 @@ div.bg {
     /* flex-grow: 1; */
     align-self: center;
 
-    /* jako kontener dla burger7 */
+    /* jako kontener dla burger7 i 10*/
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -487,7 +486,7 @@ i.fa-angle-up.opacity3 {
     border-radius: 5%;
     box-shadow: 0 0 0 4px white, 0 0 0 8px black;
     cursor: pointer;
-    transition: 0.6s 0.2s linear;
+    transition: 0.4s 0.2s linear;
 }
 
 .burger6:hover {
@@ -505,10 +504,7 @@ i.fa-angle-up.opacity3 {
     line-height: 60px;
     /* background-color: rgba(0, 0, 0, 0.5); */
     font-size: 40px;
-}
-
-i.fa-times {
-    opacity: 0;
+    transition: opacity 0.4s 0.2s ease;
 }
 
 /* po dodaniu klasy active */
@@ -518,11 +514,7 @@ i.fa-times {
     border-radius: 50%;
 }
 
-.burger6.active6 i.fa-times {
-    opacity: 1;
-}
-
-.burger6.active6 i.fa-bars {
+.opacity6 {
     opacity: 0;
 }
 
@@ -592,7 +584,7 @@ i.fa-times {
     }
 }
 
-/*------------------------------------------------------ IKONA BURGER #1 ------------------------------------------------------- */
+/*------------------------------------------------------ IKONA BURGER #8 ------------------------------------------------------- */
 .burger8 {
 
     position: absolute;
@@ -646,6 +638,133 @@ i.fa-times {
     background-color: transparent;
     font-size: 20px;
 }
+
+/*------------------------------------------------------ IKONA BURGER #9 ------------------------------------------------------- */
+.burger9 {
+
+    position: absolute;
+    top: calc(50% - 23px);
+    left: calc(50% - 30px);
+    width: 60px;
+    height: 46px;
+    cursor: pointer;
+    transition: 0.3s ease-out;
+}
+
+/*span */
+
+.burger9 span {
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    line-height: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: rgb(129, 129, 129);
+    border-radius: 5px;
+    left: 0;
+    font-size: 0;
+    color: black;
+    transition: 0.3s linear;
+}
+
+.burger9 span:nth-child(1) {
+    top: 0;
+}
+
+.burger9 span:nth-child(2) {
+    top: calc(50% - 5px);
+}
+
+.burger9 span:nth-child(3) {
+    bottom: 0;
+}
+
+.burger9:hover span {
+    width: 40px;
+    left: calc(50% - 20px);
+}
+
+.burger9:hover span:nth-child(2) {
+    width: 30px;
+    left: calc(50% - 15px);
+}
+
+/* po dodaniu klasy active9 */
+
+.active9.burger9 span:nth-child(1) {
+    top: calc(50% - 5px);
+    width: 60px;
+    left: 0;
+}
+
+.active9.burger9 span:nth-child(2) {
+    width: 60px;
+    left: 0;
+}
+
+.active9.burger9 span:nth-child(3) {
+    bottom: calc(50% - 5px);
+    width: 60px;
+    left: 0;
+}
+
+/*------------------------------------------------------ IKONA BURGER #10 ------------------------------------------------------- */
+
+.burger10 {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: calc(50% - 40px);
+    background-color: blue;
+    cursor: pointer;
+}
+
+.text10 {
+    position: absolute;
+    top: calc(50% - 30px);
+    left: calc(50% - 30px);
+    background: grey;
+    width: 60px;
+    height: 60px;
+}
+
+/* HOVER - ZMIENA KOLORU OBRAMOWANIA */
+
+/* .burger10:hover {} */
+
+/*span */
+
+.burger10 span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 60px;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    font-size: 40px;
+    /* transition: opacity 0.4s 0.2s ease; */
+}
+
+.opacity10 {
+    opacity: 0;
+}
+
+/* po dodaniu klasy active */
+
+
+.burger10.active10 {
+    border-radius: 50%;
+}
+
+.burger10.active10 .text10 {
+    border-radius: 50%;
+}
+
+
+
+
+
 
 /*------------------------------------------------------ MEDIA Queries ------------------------------------------------------- */
 
